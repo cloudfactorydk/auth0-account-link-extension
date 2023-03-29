@@ -201,7 +201,7 @@ module.exports = ({ extensionURL = '', username = 'Unknown', clientID = '', clie
 
   function searchUsersWithSameEmail() {
     return apiCall({
-      url: config.endpoints.usersApi,
+      url: config.endpoints.userApi,
       qs: {
         q: 'email:"' + user.email + '"'
       }
