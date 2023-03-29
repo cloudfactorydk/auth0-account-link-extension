@@ -1,11 +1,11 @@
 {
-  "title": "Auth0 Account Link",
-  "name": "auth0-account-link",
-  "version": "2.6.5",
+  "title": "Auth0 Account Link case insensitive",
+  "name": "auth0-account-link-case-insensitive",
+  "version": "2.6.6",
   "preVersion": "2.6.3",
-  "author": "auth0",
+  "author": "auth0-case-insensitive-fix",
   "description":
-    "This extension gives Auth0 customers the ability to allow their users to link their accounts",
+    "This extension gives Auth0 customers the ability to allow their users to link their accounts. Case insensitive version.",
   "type": "application",
   "logoUrl": "https://cdn.auth0.com/extensions/auth0-authz/assets/logo.svg",
   "docsUrl": "https://auth0.com/docs/extensions/account-link",
