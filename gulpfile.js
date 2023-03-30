@@ -7,11 +7,9 @@ const managementAdapter = require('./lib/managementAdapter');
 
 const { ManagementClientAdapter, getCurrentConfig } = managementAdapter;
 
-gulp.task('run', () => {
-  ngrok.connect(3000, (ngrokError, url) => {
-    if (ngrokError) {
-      throw ngrokError;
-    }
+gulp.task('run', async () => {
+  try {
+    const url = await ngrok.connect(3002);
 
     nodemon({
       script: './index.js',
@@ -34,7 +32,7 @@ gulp.task('run', () => {
     });
 
     setTimeout(() => {
-      const publicUrl = `${url.replace('https://', 'http://')}`;
+      const publicUrl = url;
       util.log('Public Url:', publicUrl);
 
       util.log('Patching rule on tenant.');
@@ -54,5 +52,8 @@ gulp.task('run', () => {
           });
       });
     }, 4000);
-  });
+  } catch (e) {
+    throw e;
+  }
+
 });
