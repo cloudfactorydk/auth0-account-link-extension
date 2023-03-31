@@ -241,7 +241,7 @@
   background-color: #333;
 }
 .auth0-lock-social-button[data-provider="oauth2"] {
-  background-color: #eb5424;
+  background-color: #0b173b;
 }
 .auth0-lock-social-button[data-provider="paypal"] {
   background-color: #009cde;
@@ -1124,7 +1124,7 @@
 }
 .auth0-lock.auth0-lock .auth0-lock-header-logo {
   width: auto;
-  height: 58px;
+  height: 35px !important;
   display: inline-block;
   margin: 0 0 11px;
   vertical-align: middle;
@@ -1137,7 +1137,7 @@
   font-size: 22px;
 }
 .auth0-lock.auth0-lock .auth0-lock-content {
-  padding: 20px;
+  padding: 0 20px 20px !important;
   box-sizing: border-box;
 }
 .auth0-lock.auth0-lock .auth0-lock-form {
@@ -1708,7 +1708,7 @@
   margin: 0 4px;
 }
 .auth0-lock.auth0-lock .auth0-lock-badge-bottom .auth0-lock-badge:hover svg g#LogoBadge {
-  fill: #eb5424;
+  fill: #0b173b;
   fill-opacity: 1;
 }
 .auth0-lock.auth0-lock.auth0-lock-opened {
@@ -2162,4 +2162,23 @@
 input[type="button"] {
   cursor: pointer;
 }
-
+#skip {
+  display: none;
+}
+#message {
+  display: none;
+}
+#content-container:after {
+  content: 'Continue below to sign in with your email and password, which will link your existing account to your Microsoft 365 account.';
+  color: grey;
+  white-space: pre-wrap;
+}
+#content-container {
+  text-align: center;
+                   line-height: 22px;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+form {
+  width: 400px !important;
+}
