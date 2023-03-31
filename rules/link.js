@@ -101,7 +101,7 @@ module.exports = ({ extensionURL = '', username = 'Unknown', clientID = '', clie
     return verifyToken(secondAccountToken, config.token.clientSecret)
       .then(function(decodedToken) {
         // Redirect early if tokens are mismatched
-        if (user.email !== decodedToken.email) {
+        if (user.email.toLowerCase() !== decodedToken.email.toLowerCase()) {
           console.error(LOG_TAG, 'User: ', decodedToken.email, 'tried to link to account ', user.email);
           context.redirect = {
             url: buildRedirectUrl(secondAccountToken, context.request.query, 'accountMismatch')
@@ -149,7 +149,7 @@ module.exports = ({ extensionURL = '', username = 'Unknown', clientID = '', clie
 
   function promptUser() {
     return searchUsersWithSameEmail().then(function transformUsers(users) {
-      
+
       return users.filter(function(u) {
         return u.user_id !== user.user_id;
       }).map(function(user) {
@@ -201,9 +201,9 @@ module.exports = ({ extensionURL = '', username = 'Unknown', clientID = '', clie
 
   function searchUsersWithSameEmail() {
     return apiCall({
-      url: config.endpoints.usersByEmailApi,
+      url: config.endpoints.userApi,
       qs: {
-        email: user.email
+        q: 'email:"' + user.email + '"'
       }
     });
   }
