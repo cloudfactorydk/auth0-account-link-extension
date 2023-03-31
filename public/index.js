@@ -3,7 +3,6 @@
 // and eslint is configured to lint ES6.
 
 module.exports = function(currentUser, matchingUsers, params, token) {
-  console.log(matchingUsers);
   try {
     loadLinkPage(token);
   } catch (e) {
